@@ -1,0 +1,25 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true                                                 // enables all ECMAScript 6 features except for modules
+  },
+  "extends": "eslint:recommended",                              // eslint recommended rules
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "spread": true,
+      "experimentalObjectRestSpread": true
+    },
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "no-console": 1,
+    "indent": ["error", 4, { "SwitchCase": 1 }],                // Two spaces for indentations
+    "linebreak-style": ["error", "unix"],                       // Unix style linebreaks
+    "quotes": ["error", "single"],                              // Single quotes for strings
+    "no-unused-vars": ["error", { "argsIgnorePattern": "next" }], // Ignore if next is unused, for express error handling
+    "semi": ["error", "always"],                                // Semicolons are required at line endings
+    "space-before-function-paren": ["error", "never"]           // No spaces before function definition opening parenthesis
+  }
+}

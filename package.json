@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "NODE_ENV=development nodemon src/index ",
+    "test": "NODE_ENV=development mocha src/**/**.spec.js --recursive --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "http": "~0.0.0"
+  },
+  "devDependencies": {
+    "chai": "~4.1.2",
+    "chai-http": "~4.0.0",
+    "eslint": "~5.2.0",
+    "mocha": "~5.2.0",
+    "nodemon": "~1.18.3",
+    "proxyquire": "~2.0.1",
+    "sinon": "~6.1.4"
+  }
+}

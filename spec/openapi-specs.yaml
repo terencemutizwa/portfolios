@@ -1,0 +1,75 @@
+# Use the swagger editor to view this file  (https://editor.swagger.io/)
+# NOTE: oneOf not supported in swagger ui yet, so not displayed, need to check this document instead.
+# https://github.com/swagger-api/swagger-ui/issues/3803
+
+openapi: 3.0.0
+info:
+  description: >-
+    This is the api specification of the Portfolio Service
+  version: 1.0.0
+  title: Portfolio Service
+  contact:
+    email: dev-team@caradanana.com
+paths:
+  '/v1/portfolio':
+    get:
+      summary: Get all portfolios
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Portfolio'
+        '500':
+          description: Internal server error.
+  '/v1/portfolio/{currency}':
+    parameters:
+      - in: path
+        name: currency
+        schema:
+          type: string
+        required: false
+        description: Currency
+    get:
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Portfolio'
+        '400':
+          description: Currency parameter malformed
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error.
+components:
+  schemas:
+    Portfolio:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        positions:
+          type: array
+          items: 
+            $ref: '#/components/schemas/Position'
+    Position:
+      type: object
+      properties:
+        id: 
+          type: string
+        portfolioId: 
+          type: string
+        currency: 
+          type: string
+        value: 
+          type: number
+        date: 
+          type: string
